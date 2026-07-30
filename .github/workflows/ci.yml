@@ -26,6 +26,9 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
+    - name: Run tests with Gradle
+      run: ./gradlew test
+
     - name: Build with Gradle
       run: ./gradlew build
 
@@ -34,6 +37,7 @@ jobs:
       with:
         image: lruhela/demo-app
         registry: docker.io
+        dockerfile: Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
          
